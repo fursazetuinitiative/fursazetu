@@ -1,0 +1,21 @@
+# Operating System
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/settings.json
+
+# Logs
+*.log
+
+# Temporary files
+*.bak
+
+# Node
+node_modules/
+
+# WordPress backups
+backups/
+
+# Environment variables
+.env
