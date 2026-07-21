@@ -9,6 +9,7 @@ Thumbs.db
 *.log
 
 # Temporary files
+*.tmp
 *.bak
 
 # Node
