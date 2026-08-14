@@ -15,8 +15,35 @@ Thumbs.db
 # Node
 node_modules/
 
-# WordPress backups
-backups/
-
 # Environment variables
 .env
+
+# WordPress core - local XAMPP installation
+/wp-admin/
+/wp-includes/
+/index.php
+/license.txt
+/readme.html
+/wp-*.php
+/xmlrpc.php
+/.htaccess
+/wp-config.php
+
+# WordPress generated/local files
+/wp-content/uploads/
+/wp-content/cache/
+/wp-content/upgrade/
+/wp-content/ai1wm-backups/
+/wp-content/w3tc-config/
+/wp-content/advanced-cache.php
+
+# Third-party WordPress theme
+/wp-content/themes/blogsy/
+
+# Third-party WordPress plugins
+/wp-content/plugins/all-in-one-wp-migration/
+/wp-content/plugins/emoji-toolbar/
+/wp-content/plugins/font-awesome/
+/wp-content/plugins/surerank/
+/wp-content/plugins/w3-total-cache/
+/wp-content/plugins/wpforms-lite/
