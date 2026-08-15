@@ -1,0 +1,85 @@
+= 1.1.9 =
+* Added SVG sanitizer library by https://github.com/darylldoyle/svg-sanitizer for sanitizing SVG images when uploaded.
+
+= 1.1.8 =
+* Fixed plugin version mismatch issue in SVN.
+
+= 1.1.7 =
+* Update blog and extra section settings for improved functionality and consistency.
+
+= 1.1.6 =
+* Tested up to WordPress 7.0
+* After switch theme clean cache.
+* Support added for all themes by "Peregrine Themes".
+* Check authorization before allowing to export data.
+
+= 1.1.5 =
+* Added AJAX functionality for dismissing welcome notice.
+* Added Hester Theme Library functionality for browsing and installing themes.
+* Enhanced demo and theme libraries with HesterToast integration.
+
+= 1.1.4 =
+* Removed welcome banner notice image.
+* Improved Elementor widgets style.
+
+= 1.1.3 =
+* Refactor limited message formatting in customizer settings for features, services, and slider.
+
+= 1.1.2 =
+* Fixed enqueued assets (CSS/JS) URL.
+
+= 1.1.1 =
+* Included missing JS files.
+* Refactored asset paths in Assets_Manager and enhance Morphext functionality in hester-widgets.js.
+* Added admin notice to showcase "Elementor widgets" support.
+* Removed unnecessary "unsupported theme" notice from class-hester-core-admin.php file.
+
+= 1.1.0 =
+* Added Elementor widgets: Animated Heading, Contact Form 7, Flip Box, Off Canvas, Posts, Pricing, Ajax Search, Slides, Tabs, and WooCommerce widgets (Add To Cart, Categories, Products, Carousel).
+
+= 1.0.10 = 
+* Importer updated to 0.9.5.
+* Blogsy theme support added.
+
+= 1.0.9 =
+* Update call to `post_exists` to include `post_type` in the query
+* PHP 8.4 compatibility fixes.
+* Improved demo import performance.
+* Fix a bug on deserialization of untrusted input.
+* Update compatibility tested-up-to to WordPress 6.8.
+
+= 1.0.8 =
+* BlogHash theme support added.
+* Widget issue fixed.
+
+= 1.0.7 =
+* Bloglo theme support added.
+
+= 1.0.6 =
+* Theme template name added.
+* Unnecessary code remove.
+* Style issues fixed.
+
+= 1.0.5 =
+* Fixed issues.
+* Hester lite layouts default value changed.
+* Hester lite demo update.
+* Hester lite hero image changed.
+
+= 1.0.4 =
+* Language file update.
+
+= 1.0.3 =
+* Added home section order default value.
+
+= 1.0.2 =
+* Header layout default value change.
+* Slider default value change.
+* Slider style setting added.
+* Tablet mode info section top spacing set.
+
+= 1.0.1 =
+* New demo category added
+
+= 1.0.0 =
+* Initial release 🚀

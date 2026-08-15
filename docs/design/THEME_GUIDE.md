@@ -31,6 +31,8 @@ At the time of writing, the specific feature set of the installed Blogsy theme h
 
 Section 10 defines the audit process used to convert a "Pending" row into a confirmed one. No row should be marked "In Use" or "Avoided" based on assumption.
 
+**Status as of this update:** the base Blogsy configuration pass (layout, header, menu, footer widgets, permalinks, Hester Core Theme Options) is complete and confirmed hands-on — see Section 11. Color palette remains intentionally deferred, not yet audited. Opportunity-specific templates and CPT/taxonomy structure remain unbuilt, per ARCHITECTURE.md.
+
 
 ---
 
@@ -60,16 +62,24 @@ Rationale:
 
 # 4. Blogsy Features In Use
 
+Confirmed against Blogsy's official WordPress.org listing (v1.0.19, by peregrinethemes) on the date this section was last updated. Rows still marked "Pending Theme Audit" require a hands-on check inside wp-admin, not just the public feature list, since real customizer behavior can differ from marketing copy.
+
 | Feature | Status | Notes |
 |---|---|---|
-| Header / navigation | Pending Theme Audit | Assumed used as-is per DESIGN_SYSTEM.md's "Theme First" principle unless a specific conflict is found |
-| Footer widget areas | Pending Theme Audit | SITE_STRUCTURE.md's footer content (Navigation, Resources, Connect) should be checked against Blogsy's native footer widget areas before any custom footer template is considered |
-| Customizer (site identity, colors, typography) | Pending Theme Audit | Preferred over hard-coded theme-mod overrides wherever Blogsy's customizer already exposes the needed control |
+| Header styles | Confirmed available | Blogsy ships multiple header style options natively — exact style choice for FursaZetu is a Section 10 audit task once inside the Customizer |
+| Footer widget areas | Confirmed available | Native footer-widgets support confirmed. SITE_STRUCTURE.md's three footer columns (Navigation, Resources, Connect) should map to Blogsy's native footer widget areas rather than a custom footer template |
+| Custom Logo / Custom Menu | Confirmed available | Standard WordPress Custom Logo + Custom Menu support, exposed through Blogsy's Customizer |
+| Custom Colors | Confirmed available | Native color customization exists. This is also where BRAND.md's still-open color palette decision gets resolved — see Section 10's audit notes |
+| Editor Style | Confirmed available | Block editor content styling matches the front end — relevant to how opportunity Full Description content (OPPORTUNITY_MODEL.md Section 8) will actually render |
+| Layout options: One column / Left sidebar / Right sidebar / Full width template | Confirmed available | Blogsy supports sidebar-free (one column) and full-width layouts natively — a strong candidate for the opportunity single template and category archives, favoring DESIGN_SYSTEM.md's Simplicity principle over a widget-heavy sidebar |
+| Grid layout (native blog archive) | Not used for Opportunities, but relevant as a reference pattern | Blogsy's native grid/masonry blog layout is not used directly for opportunity archives (Section 5), but its visual pattern is a legitimate starting reference for the opportunity card grid in COMPONENT_LIBRARY.md once populated |
+| Post Formats, Sticky Post, Threaded Comments | Confirmed available, not used | These are blog/editorial features not relevant to the Opportunity content type; left at theme defaults, unused |
+| "Theme Options" panel | Confirmed to exist as a feature tag | Contents not yet audited in wp-admin — see Section 11. Likely surfaces through the Hester Core companion plugin (Section 7) rather than the theme alone |
+| Companion plugin dependency (Hester Core) | Confirmed required for full functionality | See Section 7 — several of the features above (extra widgets, some customizer options, one-click demo import) are documented as requiring Hester Core, not the theme in isolation |
 | Post/page templates (non-opportunity content) | In use, unmodified | About, Contact, and other static pages (SITE_STRUCTURE.md) use Blogsy's native page templates — no reason to override these |
-| Widgets / sidebar | Pending Theme Audit | To be confirmed against actual homepage/archive layout needs from SITE_STRUCTURE.md |
-| Blogsy's native blog/archive templates | Not used for Opportunities | Opportunity archives use custom taxonomy templates (ARCHITECTURE.md Section 9), not Blogsy's default post archive — see Section 5 |
+| Blogsy's native blog/archive templates, applied to Opportunities | Not used for Opportunities | Opportunity archives use custom taxonomy templates (ARCHITECTURE.md Section 9), not Blogsy's default post archive — see Section 5 |
 
-Rows marked "Pending Theme Audit" should be updated to "In use, unmodified," "In use, customized (see Section 6)," or "Not applicable" as the audit (Section 10) proceeds.
+Rows still marked "Pending Theme Audit" elsewhere in this document should be updated the same way: confirmed only after a hands-on check, never from marketing copy alone.
 
 
 ---
@@ -109,12 +119,15 @@ None of the above should be attempted as a Blogsy customizer setting or a theme 
 
 | Plugin | Purpose | Required / Optional | Reference |
 |---|---|---|---|
+| Hester Core (Peregrine Themes) | Official companion plugin for Blogsy — unlocks additional widgets, customization options, Elementor widgets, and one-click demo import | Required for Blogsy's full feature set, confirmed via the theme's own plugin ecosystem | THEME_GUIDE.md Section 4 |
 | Advanced Custom Fields (ACF) | Opportunity field storage | Required | ARCHITECTURE.md Section 6 |
 | Royal MCP | AI-assisted curation interface | Required for the AI-driven workflow; the site functions without it for manual curation | ARCHITECTURE.md Section 13, SECURITY.md Section 5 |
 | Yoast SEO or Rank Math | SEO meta management | Required (either one) | ARCHITECTURE.md Section 12 |
 | SiteVault (Royal MCP integration) | Backups | Recommended | SECURITY.md Section 9 |
 | ForgeCache (Royal MCP integration) | Page caching | Optional | ARCHITECTURE.md Section 15 |
 | WPML or Polylang | Multi-language | Not yet — Phase 3/4 | ARCHITECTURE.md Section 19 |
+
+Note: Blogsy is built by Peregrine Themes, the same studio behind BlogHash — should FursaZetu ever revisit theme choice (Section 12), both are governed by this same plugin-dependency pattern.
 
 Every plugin added to this list should have passed PROJECT.md's Decision Framework first. A plugin should not appear in a live site's plugin list without a corresponding row here.
 
@@ -157,12 +170,21 @@ Every audit entry should answer the question DESIGN_SYSTEM.md poses directly: *"
 
 # 11. Open Items / Pending Audit
 
-Recorded honestly rather than guessed at:
+Recorded honestly rather than guessed at. Resolved as of this update, confirmed hands-on in wp-admin (not from marketing copy):
 
-- Full Blogsy feature inventory (header, footer, widgets, customizer options, post formats, any built-in related-content or SEO features) has not yet been audited against actual theme files.
-- Whether Opportunity CPT/taxonomy registration should live in the child theme's `inc/` folder (as ARCHITECTURE.md Section 17 currently shows) or in a small standalone MU-plugin, decoupling the data model from the theme layer entirely, is not yet decided (Section 3).
-- Whether Blogsy ships any native structured-data (schema.org) output that could conflict with or duplicate the custom schema output planned in ARCHITECTURE.md Section 12 has not been checked.
-- Whether Blogsy's default search template needs overriding to satisfy the `opportunity`-scoped search behavior in ARCHITECTURE.md Section 11, or whether a query-var filter is sufficient without a template override, is not yet determined.
+- **Layout**: one-column/full-width confirmed selected, sidebar removed — matches DESIGN_SYSTEM.md's Simplicity principle, applied site-wide rather than per-template for now.
+- **Header style**: a clean, simple header confirmed selected. Specific style name not yet recorded — worth a one-line addition here once convenient, purely for future reference.
+- **Menu**: Home / Browse Opportunities / About / Contact confirmed created and assigned, with minor adjustments made from the original suggestion as needed on-site.
+- **Footer widgets**: populated and arranged per the recommended Navigation / Resources / Connect structure from SITE_STRUCTURE.md.
+- **Permalinks**: confirmed set to "Post name" — the required baseline for ARCHITECTURE.md Section 8's category-based rewrite.
+- **Hester Core Theme Options**: opened and reviewed; relevant sections configured. Full settings inventory not itemized here — acceptable, since the practical outcome (a working, reviewed configuration) is what matters, not an exhaustive settings transcript.
+
+Still open:
+
+- **Color palette**: deliberately deferred, on the project's own decision — the current theme default palette is left unchanged intentionally, to be revisited once site structure and content are further along rather than locked in prematurely. This is a considered sequencing choice, not an oversight, and should be revisited explicitly before public launch (see SECURITY.md's Pre-Launch Checklist pattern — a similar pre-launch branding checklist item should exist once COMPONENT_LIBRARY.md is active).
+- Whether Opportunity CPT/taxonomy registration should live in the child theme's `inc/` folder or in a small standalone MU-plugin (Section 3) — unrelated to the configuration pass above, still unresolved.
+- Whether Blogsy ships any native structured-data (schema.org) output that could conflict with ARCHITECTURE.md Section 12's custom schema output — not yet checked.
+- Whether Blogsy's default search template needs overriding for `opportunity`-scoped search (ARCHITECTURE.md Section 11) — not yet determined.
 
 These items should be resolved via the audit process (Section 10) before the corresponding child theme files are written, not discovered mid-implementation.
 
