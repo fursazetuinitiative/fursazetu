@@ -1,12 +1,82 @@
 # DEVELOPMENT_RULES.md
 
-Version: 1.0
+Version: 1.1
 
 Status: Active
 
 Project: FursaZetu
 
 Website: https://fursazetu.gt.tc
+
+# Current Development Phase
+
+The FursaZetu project has completed its planning and architecture phase.
+
+The current phase is IMPLEMENTATION.
+
+All core documentation (Brand, Design System, Site Structure, Opportunity Model, Editorial Policy, Architecture, Theme Guide) should be treated as the project's source of truth.
+
+Do not create new documentation unless:
+
+- an existing document requires correction;
+- a new feature introduces a completely new concept;
+- documentation is explicitly requested.
+
+Implementation should always take priority over creating additional markdown files.
+
+# Development Priorities
+
+When working on this project, always prioritize:
+
+1. Building and improving the WordPress website.
+2. Using existing Blogsy and Hester Core capabilities.
+3. Maximizing Gutenberg blocks and patterns.
+4. Improving user experience.
+5. Accessibility.
+6. Performance.
+7. Responsive design.
+
+Only recommend custom code when native WordPress capabilities cannot achieve the required result.
+
+
+# Decision Making
+
+When multiple approaches exist:
+
+Prefer
+
+Native WordPress
+↓
+
+Blogsy features
+↓
+
+Hester Core
+↓
+
+Gutenberg patterns
+↓
+
+Royal MCP tools
+↓
+
+Custom PHP/CSS/JS
+
+Always choose the simplest maintainable solution.
+
+# Royal MCP Usage
+
+Royal MCP should be used to inspect and modify the WordPress website whenever possible.
+
+Before concluding that a task cannot be completed:
+
+1. Inspect available MCP tools.
+2. Inspect the active theme.
+3. Inspect installed plugins.
+4. Inspect reusable block patterns.
+5. Inspect WordPress settings.
+
+Only declare a limitation after confirming that no native WordPress, Blogsy, Hester Core, Gutenberg, or Royal MCP capability can accomplish the task
 
 
 # 1. Purpose

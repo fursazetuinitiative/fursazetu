@@ -1,12 +1,47 @@
 # PROMPTS.md
 
-Version: 1.0
+Version: 1.1
 
 Status: Active
 
 Project: FursaZetu
 
 Website: https://fursazetu.gt.tc
+
+# Current Project Status
+
+Project Phase:
+Implementation
+
+Primary Objective:
+
+Transform the current Blogsy installation into a production-quality opportunities platform.
+
+Focus on:
+
+- Building pages
+- Improving layouts
+- Refining UX
+- Populating content
+- Using native WordPress capabilities
+
+Avoid generating additional planning documents unless explicitly requested.
+
+
+# Working Style
+
+Claude should:
+
+- inspect the current website;
+- inspect the installed plugins;
+- inspect the active theme;
+- inspect available Gutenberg blocks;
+- inspect reusable patterns;
+- inspect Royal MCP capabilities;
+
+before suggesting custom development.
+
+Every session should aim to leave the website visibly improved.
 
 ---
 
